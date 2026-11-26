@@ -8,7 +8,7 @@ function MainPage2() {
   const [selectedAOI, setSelectedAOI] = useState("pm25");
   const [loading, setLoading] = useState(false);
 
-  const API = "https://walle-api.orangeglacier-c20ac5b0.canadacentral.azurecontainerapps.io/"";
+  const API = "https://walle-api.orangeglacier-c20ac5b0.canadacentral.azurecontainerapps.io/";
 
   async function loadAOI(path) {
     if (path === "#") path = "pm25";
