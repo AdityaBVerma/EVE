@@ -30,7 +30,7 @@ function Header() {
 
           {/* GitHub */}
           <a
-            href="https://github.com/AdityaBVerma/WALL.E"
+            href="https://github.com/AdityaBVerma/EVE"
             target="_blank"
             rel="noopener noreferrer"
             className="border border-gray-600 px-4 py-1 rounded bitcount-prop-double-dots hover:bg-white hover:text-black transition"

@@ -21,19 +21,31 @@ function CesiumViewer({ aoiData }) {
   // CREATE VIEWER
   // --------------------------------------------------
   useEffect(() => {
-    viewerRef.current = new Cesium.Viewer(containerRef.current, {
-      timeline: false,
-      animation: false,
-      geocoder: false,
-      navigationHelpButton: false,
-      fullscreenButton: false,
-      requestRenderMode: true,
-      maximumRenderTimeChange: Infinity
-    });
+    const imageryModels = Cesium.createDefaultImageryProviderViewModels();
+
+const defaultImagery = imageryModels.find(
+  (layer) => layer.name === "Stadia Alidade Smooth"
+);
+
+viewerRef.current = new Cesium.Viewer(containerRef.current, {
+  imageryProviderViewModels: imageryModels,
+  selectedImageryProviderViewModel: defaultImagery,
+
+  terrainProvider: new Cesium.EllipsoidTerrainProvider(),
+
+  timeline: false,
+  animation: false,
+  geocoder: false,
+  navigationHelpButton: false,
+  fullscreenButton: false,
+  requestRenderMode: true,
+  maximumRenderTimeChange: Infinity
+});
 
     const viewer = viewerRef.current;
 
     viewer.scene.globe.depthTestAgainstTerrain = false;
+    viewer.scene.globe.enableLighting = false;
 
     // --------------------------------------------------
     // ADD PM2.5 RECTANGLES
