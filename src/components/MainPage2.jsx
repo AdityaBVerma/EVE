@@ -17,7 +17,8 @@ function MainPage2() {
       setLoading(true);
 
       const res = await fetch(`${API}/${path}`);
-
+      console.log("API URL:", API);
+console.log("Request URL:", `${API}/${path}`);
       if (!res.ok) {
         throw new Error(`API error: ${res.status}`);
       }
