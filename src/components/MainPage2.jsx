@@ -11,7 +11,7 @@ function MainPage2() {
   const API = import.meta.env.VITE_API_URL;
 
   async function loadAOI(path) {
-    if (path === "#") return;
+    if (path === "#") path = "pm25";
 
     try {
       setLoading(true);

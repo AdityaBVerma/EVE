@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import * as Cesium from "cesium";
-import rawData from "../data/pm25.json";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 
 function getColorBySeverity(value) {
