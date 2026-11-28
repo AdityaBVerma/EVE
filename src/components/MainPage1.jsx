@@ -89,9 +89,9 @@ const getColor = (value) => {
     })
   : null;
   return (
-    <section id="home" ref={ref} className="relative h-[100svh] overflow-hidden bg-black">
+    <section id="home" ref={ref} className="relative min-h-[100svh] overflow-hidden bg-black">
 
-      <div className="sticky top-0 h-[100svh] flex items-center justify-center text-white px-4 sm:px-6">
+      <div className="relative flex min-h-[100svh] items-center justify-center text-white px-4 sm:px-6 py-10 sm:py-12">
 
         {/* Stars */}
         {stars.map((star) => (
