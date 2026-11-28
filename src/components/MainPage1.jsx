@@ -89,9 +89,9 @@ const getColor = (value) => {
     })
   : null;
   return (
-    <section id="home" ref={ref} className="relative h-[100vh] overflow-hidden bg-black">
+    <section id="home" ref={ref} className="relative min-h-[100svh] overflow-hidden bg-black">
 
-      <div className="sticky top-0 h-screen flex items-center justify-center text-white px-6">
+      <div className="relative flex min-h-[100svh] items-center justify-center text-white px-4 sm:px-6 py-10 sm:py-12">
 
         {/* Stars */}
         {stars.map((star) => (
@@ -110,14 +110,14 @@ const getColor = (value) => {
         ))}
 
         {/* Content Grid */}
-        <div className="relative z-10 max-w-5xl w-full flex flex-col gap-20 items-center text-center">
+        <div className="relative z-10 max-w-5xl w-full flex flex-col gap-8 sm:gap-12 lg:gap-16 items-center text-center">
 
           {/* HERO SECTION */}
           <div>
 
-            <div className="flex justify-center bitcount-prop-double-dots text-9xl md:text-8xl  mb-6">
+            <div className="flex justify-center bitcount-prop-double-dots text-5xl leading-none sm:text-7xl lg:text-8xl mb-4 sm:mb-6">
               <motion.span style={{  opacity }}>
-                The Air We Breath
+                The Air We Breathe
               </motion.span>
 {/* 
               <motion.span style={{ x: xRight, opacity }} className="ml-4">
@@ -127,24 +127,24 @@ const getColor = (value) => {
 
             <motion.p
               style={{ opacity }}
-              className="text-lg md:text-xl bitcount-prop-double-normal text-white/80 mb-8"
+              className="mx-auto max-w-xl text-sm leading-relaxed sm:text-lg lg:text-xl bitcount-prop-double-normal text-white/80 mt-4 mb-5 sm:mb-8"
             >
               Air pollution is invisible but affects billions of people.
               Explore real-world sensor readings and discover how air
               quality differs across the planet.
             </motion.p>
 
-            <motion.div style={{ opacity }} className="flex justify-center gap-4">
+            <motion.div style={{ opacity }} className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <a
                 href="#map"
-                className="px-6 py-3 bg-white  hover:border text-black bitcount-prop-double-dots rounded-lg hover:bg-black hover:text-white transition"
+                className="px-5 py-3 bg-white border border-white text-black bitcount-prop-double-dots rounded-lg hover:bg-black hover:text-white transition"
               >
                 Explore the Globe
               </a>
 
               <a
                 href="#about"
-                className="px-6  py-3 border border-white bitcount-prop-double-dots rounded-lg hover:bg-white hover:text-black transition"
+                className="px-5 py-3 border border-white bitcount-prop-double-dots rounded-lg hover:bg-white hover:text-black transition"
               >
                 Why This Exists
               </a>
@@ -153,11 +153,11 @@ const getColor = (value) => {
           </div>
 
           {/* COUNTRY COMPARISON */}
-          <motion.div style={{ opacity }} className="relative">
+          <motion.div style={{ opacity }} className="relative w-full">
 
             {/* LIVE INDICATOR */}
             {formattedTime && (
-              <div className="absolute top-0 right-0 flex items-center gap-2 text-xs text-gray-400">
+              <div className="mb-2 flex justify-center sm:justify-end items-center gap-2 text-[10px] sm:text-xs text-gray-400">
 
                 <span className="flex items-center gap-1 bitcount-prop-double-dots  text-green-400">
                   <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
@@ -170,11 +170,12 @@ const getColor = (value) => {
             )}
 
             {/* GRAPH */}
-            <div className="flex items-end bitcount-prop-double-dots justify-center gap-10 h-64">
+            <div className="w-full overflow-x-auto pb-2">
+              <div className="flex items-end bitcount-prop-double-dots justify-start sm:justify-center gap-2 sm:gap-6 lg:gap-10 h-36 sm:h-52 lg:h-64 min-w-[520px] sm:min-w-0 px-2">
 
               {countries.map((country, index) => {
                 const maxPM = Math.max(...countries.map(c => c.pm25))
-                const height = (country.pm25 / maxPM) * 200
+                const height = (country.pm25 / maxPM) * 120
 
                 return (
                   <div key={index} className="flex flex-col items-center">
@@ -198,6 +199,7 @@ const getColor = (value) => {
                 )
               })}
 
+              </div>
             </div>
 
           </motion.div>
