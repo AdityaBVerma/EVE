@@ -21,25 +21,24 @@ function CesiumViewer({ aoiData }) {
   // --------------------------------------------------
   useEffect(() => {
     const imageryModels = Cesium.createDefaultImageryProviderViewModels();
+    const defaultImagery = imageryModels.find(
+      (layer) => layer.name === "OpenStreetMap"
+    );
 
-const defaultImagery = imageryModels.find(
-  (layer) => layer.name === "Stadia Alidade Smooth"
-);
+    viewerRef.current = new Cesium.Viewer(containerRef.current, {
+      imageryProviderViewModels: imageryModels,
+      selectedImageryProviderViewModel: defaultImagery,
 
-viewerRef.current = new Cesium.Viewer(containerRef.current, {
-  imageryProviderViewModels: imageryModels,
-  selectedImageryProviderViewModel: defaultImagery,
+      terrainProvider: new Cesium.EllipsoidTerrainProvider(),
 
-  terrainProvider: new Cesium.EllipsoidTerrainProvider(),
-
-  timeline: false,
-  animation: false,
-  geocoder: false,
-  navigationHelpButton: false,
-  fullscreenButton: false,
-  requestRenderMode: true,
-  maximumRenderTimeChange: Infinity
-});
+      timeline: false,
+      animation: false,
+      geocoder: false,
+      navigationHelpButton: false,
+      fullscreenButton: false,
+      requestRenderMode: true,
+      maximumRenderTimeChange: Infinity
+    });
 
     const viewer = viewerRef.current;
 
