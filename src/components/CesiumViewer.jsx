@@ -153,7 +153,7 @@ viewerRef.current = new Cesium.Viewer(containerRef.current, {
   return (
     <div
       ref={containerRef}
-      className="h-screen w-full"
+      className="h-[100svh] w-full"
     />
   );
 }

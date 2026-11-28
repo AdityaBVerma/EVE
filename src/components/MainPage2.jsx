@@ -4,7 +4,7 @@ import CesiumViewer from "./CesiumViewer";
 
 function MainPage2() {
   const [aoiData, setAoiData] = useState(null);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [selectedAOI, setSelectedAOI] = useState("pm25");
   const [loading, setLoading] = useState(false);
 
@@ -45,11 +45,11 @@ console.log("Request URL:", `${API}/${path}`);
   ];
 
   return (
-    <div id="map" className="flex">
+    <div id="map" className="relative flex h-screen overflow-hidden lg:static">
 
       {/* Sidebar */}
       <aside
-        className={`bg-black text-white transition-all duration-300
+        className={`absolute inset-y-0 left-0 z-40 h-full bg-black/95 text-white transition-all duration-300 lg:relative lg:h-screen lg:bg-black
         ${open ? "w-64" : "w-10 flex flex-col items-center"}`}
       >
         <button
